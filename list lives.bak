@@ -1,6 +1,3 @@
-;; The first three lines of this file were inserted by DrRacket. They record metadata
-;; about the language level of this file in a form that our tools can easily process.
-#reader(lib "htdp-advanced-reader.ss" "lang")((modname |list lives|) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #t #t none #f () #f)))
 (define-struct lifepath (name next))
 ;; Lifepath is (make-lifepath String (listof Lifepath))
 ;; interp. a period in someone's life and their next steps
@@ -14,11 +11,10 @@
 
 ;; Lifepath is (listof Lifepath)
 (define BORN-PEASANT (shared
-                    ((-P- (list -F- -M- -MW-))
-                     (-BP- (make-lifepath "Born Peasant" -P-))
-                     (-F- (make-lifepath "Farmer" -P-))
-                     (-M- (make-lifepath "Miller" -P-))
-                     (-MW- (make-lifepath "Midwife" -P-))
+                    ((-BP- (make-lifepath "Born Peasant" (list -F- -M- -MW-)))
+                     (-F- (make-lifepath "Farmer" (list -F- -M- -MW-)))
+                     (-M- (make-lifepath "Miller" (list -F- -M- -MW-)))
+                     (-MW- (make-lifepath "Midwife" (list -F- -M- -MW-)))
                      )-BP-))
 
 ;; Setting Natural -> (listof Life)
